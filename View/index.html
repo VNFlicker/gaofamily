@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/1a0d187c62.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../Style/index.css" />
+  <link rel="icon" type="image/x-icon" href="../Data/layout/favicon.png" />
+  <title>Gạo || Family</title>
+</head>
+
+<body>
+  <!-- header -->
+  <header>
+    <!-- menu mobile -->
+    <div class="h-mobile-menu">
+      <i class="fa-solid fa-bars" onclick="ShowNAV(this)"></i>
+    </div>
+    <!-- logo -->
+    <div class="h-logo" onclick="location.reload(true);">
+      <span>Gạo Family</span>
+    </div>
+    <!-- suport -->
+    <div class="suport">
+      <input type="text" placeholder="*Tìm tên sản phẩm">
+      <i class="fa-solid fa-magnifying-glass" title="Tìm kiếm"></i>
+    </div>
+    <!-- Search Mobile -->
+    <div class="h-mobile-search">
+      <i class="fa-solid fa-magnifying-glass" onclick="ShowTIMKIEM(this)"></i>
+    </div>
+  </header>
+  <!-- MOBILE NAV -->
+  <div class="mobile">
+    <div class="menu" onclick="location.reload(true);">
+      <span>Trang chủ</span>
+    </div>
+    <div class="menu">
+      <span onclick="ShowSubmenu(this)">Thời trang nam</span>
+      <div class="sub-menu">
+        <span data-mydata="Nam-Dobo" onclick="LoadSP(this)">Đồ bộ</span>
+        <span data-mydata="Nam-Aothun" onclick="LoadSP(this)">Áo thun - phông</span>
+        <span data-mydata="Nam-Aolen" onclick="LoadSP(this)">Áo len - nỉ - thu đông</span>
+        <span data-mydata="Nam-Aokhoac" onclick="LoadSP(this)">Áo khoác</span>
+        <span data-mydata="Nam-Quanshort" onclick="LoadSP(this)">Quần short</span>
+        <span data-mydata="Nam-Quandai" onclick="LoadSP(this)">Quần dài - âu</span>
+        <span data-mydata="Nam-Quanjean" onclick="LoadSP(this)">Quần jeans</span>
+        <span data-mydata="Nam-Thatlung" onclick="LoadSP(this)">Thắt lưng</span>
+      </div>
+    </div>
+    <div class="menu">
+      <span onclick="ShowSubmenu(this)">Thời trang nữ</span>
+      <div class="sub-menu">
+        <span data-mydata="Nu-Aothun" onclick="LoadSP(this)">Áo thun</span>
+        <span data-mydata="Nu-Aodai" onclick="LoadSP(this)">Áo dài- thu đông</span>
+        <span data-mydata="Nu-Aokhoac" onclick="LoadSP(this)">Áo khoác</span>
+        <span data-mydata="Nu-Hoodie" onclick="LoadSP(this)">Hoodie- nỉ</span>
+        <span data-mydata="Nu-Lienthan" onclick="LoadSP(this)">Đồ liền thân</span>
+        <span data-mydata="Nu-Quandui" onclick="LoadSP(this)">Quần đùi</span>
+        <span data-mydata="Nu-Quanjean" onclick="LoadSP(this)">Quần jeans</span>
+        <span data-mydata="Nu-Dam" onclick="LoadSP(this)">Đầm - váy</span>
+        <span data-mydata="Nu-Chanvay" onclick="LoadSP(this)">Chân váy</span>
+        <span data-mydata="Nu-Dongu" onclick="LoadSP(this)">Đồ ngủ</span>
+        <span data-mydata="Nu-Vo" onclick="LoadSP(this)">Vớ - tất</span>
+      </div>
+    </div>
+    <div class="menu">
+      <span onclick="ShowSubmenu(this)">Thời trang trẻ em</span>
+      <div class="sub-menu">
+        <span data-mydata="Treem-Dobo" onclick="LoadSP(this)">Đồ bộ</span>
+        <span data-mydata="Treem-Ao" onclick="LoadSP(this)">Áo</span>
+        <span data-mydata="Treem-Quan" onclick="LoadSP(this)">Quần</span>
+        <span data-mydata="Treem-Mu" onclick="LoadSP(this)">Mũ</span>
+      </div>
+    </div>
+    <div class="menu">
+      <span>Khác</span>
+    </div>
+  </div>
+  <!-- Mobile-Timkiem -->
+  <div class="mobile-timkiem">
+    <div class="timkiem-header">
+      <input type="text" placeholder="*Tìm tên sản phẩm">
+    </div>
+    <div class="timkiem-main">
+      <!-- List san pham -->
+      <div class="list-pro">
+        <div class="list-pro-img">
+          <img src="../Data/product/20230731175055361/3.jpg" alt="">
+        </div>
+        <div class="list-pro-note">
+          <span>Áo Thun Trẻ Em Cổ Tròn Cơ Bản Cotton USA</span>
+          <i>50.000 ~ 80.000</i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <!-- nav -->
+    <nav>
+      <div class="menu" onclick="location.reload(true);">
+        <span>Trang chủ</span>
+      </div>
+      <div class="menu">
+        <span onclick="ShowSubmenu(this)">Thời trang nam</span>
+        <div class="sub-menu">
+          <span data-mydata="Nam-Dobo" onclick="LoadSP(this)">Đồ bộ</span>
+          <span data-mydata="Nam-Aothun" onclick="LoadSP(this)">Áo thun - phông</span>
+          <span data-mydata="Nam-Aolen" onclick="LoadSP(this)">Áo len - nỉ - thu đông</span>
+          <span data-mydata="Nam-Aokhoac" onclick="LoadSP(this)">Áo khoác</span>
+          <span data-mydata="Nam-Quanshort" onclick="LoadSP(this)">Quần short</span>
+          <span data-mydata="Nam-Quandai" onclick="LoadSP(this)">Quần dài - âu</span>
+          <span data-mydata="Nam-Quanjean" onclick="LoadSP(this)">Quần jeans</span>
+          <span data-mydata="Nam-Thatlung" onclick="LoadSP(this)">Thắt lưng</span>
+        </div>
+      </div>
+      <div class="menu">
+        <span onclick="ShowSubmenu(this)">Thời trang nữ</span>
+        <div class="sub-menu">
+          <span data-mydata="Nu-Aothun" onclick="LoadSP(this)">Áo thun</span>
+          <span data-mydata="Nu-Aodai" onclick="LoadSP(this)">Áo dài- thu đông</span>
+          <span data-mydata="Nu-Aokhoac" onclick="LoadSP(this)">Áo khoác</span>
+          <span data-mydata="Nu-Hoodie" onclick="LoadSP(this)">Hoodie- nỉ</span>
+          <span data-mydata="Nu-Lienthan" onclick="LoadSP(this)">Đồ liền thân</span>
+          <span data-mydata="Nu-Quandui" onclick="LoadSP(this)">Quần đùi</span>
+          <span data-mydata="Nu-Quanjean" onclick="LoadSP(this)">Quần jeans</span>
+          <span data-mydata="Nu-Dam" onclick="LoadSP(this)">Đầm - váy</span>
+          <span data-mydata="Nu-Chanvay" onclick="LoadSP(this)">Chân váy</span>
+          <span data-mydata="Nu-Dongu" onclick="LoadSP(this)">Đồ ngủ</span>
+          <span data-mydata="Nu-Vo" onclick="LoadSP(this)">Vớ - tất</span>
+        </div>
+      </div>
+      <div class="menu">
+        <span onclick="ShowSubmenu(this)">Thời trang trẻ em</span>
+        <div class="sub-menu">
+          <span data-mydata="Treem-Dobo" onclick="LoadSP(this)">Đồ bộ</span>
+          <span data-mydata="Treem-Ao" onclick="LoadSP(this)">Áo</span>
+          <span data-mydata="Treem-Quan" onclick="LoadSP(this)">Quần</span>
+          <span data-mydata="Treem-Mu" onclick="LoadSP(this)">Mũ</span>
+        </div>
+      </div>
+      <div class="menu">
+        <span>Khác</span>
+      </div>
+    </nav>
+    <!-- main -->
+    <main>
+      <!-- background -->
+      <div class="background">
+        <img src="../Data/layout/background.png" alt="" />
+      </div>
+      <!-- Tieu de -->
+      <div class="main-title">
+        <span id="span-title">&#10052; Sản phẩm mới &#10052;</span>
+      </div>
+      <!-- Danh sách sản phẩm -->
+      <div class="list-product">
+        <!-- sản phẩm -->
+        <div class="product">
+          <!-- image -->
+          <div class="pro-img">
+            <img src="../Data/product/20230731175055361/2.jpg" alt="" />
+            <div class="note">
+              <span>Đã bán 1.5k</span>
+              <span>4.5<i class="fa-solid fa-star"></i></span>
+            </div>
+          </div>
+          <!-- list img -->
+          <div class="pro-listimg">
+            <div class="pro-listimg-img">
+              <img onclick="ShowIMG(this)" src="../Data/product/20230731175055361/1.jpg" alt="" />
+            </div>
+            <div class="pro-listimg-img">
+              <img onclick="ShowIMG(this)" src="../Data/product/20230731175055361/2.jpg" alt="" />
+            </div>
+            <div class="pro-listimg-img">
+              <img onclick="ShowIMG(this)" src="../Data/product/20230731175055361/3.jpg" alt="" />
+            </div>
+            <div class="pro-listimg-img">
+              <img onclick="ShowIMG(this)" src="../Data/product/20230731175055361/4.jpg" alt="" />
+            </div>
+            <div class="pro-listimg-img">
+              <img onclick="ShowIMG(this)" src="../Data/product/20230731175055361/1.jpg" alt="" />
+            </div>
+          </div>
+          <!-- thongtin -->
+          <div class="pro-tensp">
+            <span>Áo Thun Trẻ Em Cổ Tròn Cơ Bản Cotton USA</span>
+          </div>
+          <!-- Gia san pham -->
+          <div class="pro-gia">
+            <span>50.000</span>
+            <i class="fa-solid fa-dong-sign"></i>
+            <i class="fa-solid fa-arrow-right"></i>
+            <span>80.000</span>
+            <i class="fa-solid fa-dong-sign"></i>
+          </div>
+        </div>
+        <!-- sản phẩm -->
+        <div class="product">
+          <!-- image -->
+          <div class="pro-img">
+            <img src="../Data/product/20230731175055361/1.jpg" alt="" />
+            <div class="note">
+              <span>Đã bán 1.5k</span>
+              <span>4.5<i class="fa-solid fa-star"></i></span>
+            </div>
+          </div>
+          <!-- list img -->
+          <div class="pro-listimg">
+            <div class="pro-listimg-img">
+              <img onclick="ShowIMG(this)" src="../Data/product/20230731175055361/1.jpg" alt="" />
+            </div>
+            <div class="pro-listimg-img">
+              <img onclick="ShowIMG(this)" src="../Data/product/20230731175055361/2.jpg" alt="" />
+            </div>
+            <div class="pro-listimg-img">
+              <img onclick="ShowIMG(this)" src="../Data/product/20230731175055361/3.jpg" alt="" />
+            </div>
+            <div class="pro-listimg-img">
+              <img onclick="ShowIMG(this)" src="../Data/product/20230731175055361/4.jpg" alt="" />
+            </div>
+            <div class="pro-listimg-img">
+              <img onclick="ShowIMG(this)" src="../Data/product/20230731175055361/1.jpg" alt="" />
+            </div>
+          </div>
+          <!-- thongtin -->
+          <div class="pro-tensp">
+            <span>Áo Thun Trẻ Em Cổ Tròn Cơ Bản Cotton USA</span>
+          </div>
+          <!-- Gia san pham -->
+          <div class="pro-gia">
+            <span>50.000</span>
+            <i class="fa-solid fa-dong-sign"></i>
+            <i class="fa-solid fa-arrow-right"></i>
+            <span>80.000</span>
+            <i class="fa-solid fa-dong-sign"></i>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../Script/index.js"></script>
+</body>
+
+</html>
