@@ -312,6 +312,7 @@ main .list-product .product {
   margin-bottom: 40px;
   transition: all linear .2s;
   cursor: pointer;
+  user-select: none;
 }
 
 main .list-product .product:hover .pro-img img {
