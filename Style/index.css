@@ -365,6 +365,7 @@ main .list-product .product .pro-listimg {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 4px;
+  padding: 0px 4px;
   overflow: hidden;
 }
 
@@ -421,7 +422,12 @@ main .list-product .product .pro-gia i {
   font-style: italic;
 }
 
-
+/* footer */
+footer{
+  width: 100%;
+  height: 200px;
+  background-color: rgb(87, 87, 87);
+}
 
 /* TABLET */
 
