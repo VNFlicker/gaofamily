@@ -106,7 +106,7 @@ header .suport i {
   position: absolute;
   top: 0;
   right: 0;
-  transition: all linear .1s;
+  transition: all linear 0.1s;
   cursor: pointer;
 }
 
@@ -127,7 +127,7 @@ header .h-mobile-search {
   position: fixed;
   top: 44px;
   left: -100%;
-  transition: all linear .1s;
+  transition: all linear 0.1s;
   z-index: 999;
 }
 /* TIM KIEM MOBILE */
@@ -139,11 +139,11 @@ header .h-mobile-search {
   position: fixed;
   top: 44px;
   right: 0;
-  transition: all linear .1s;
+  transition: all linear 0.1s;
   z-index: 999;
 }
 
-.timkiem-header{
+.timkiem-header {
   width: 100%;
   height: 40px;
   display: flex;
@@ -151,7 +151,7 @@ header .h-mobile-search {
   justify-content: center;
   box-shadow: 1px 0 4px white;
 }
-.timkiem-header input{
+.timkiem-header input {
   width: 88%;
   height: 32px;
   border-radius: 17px;
@@ -160,13 +160,13 @@ header .h-mobile-search {
   padding: 8px;
   font-size: 16px;
 }
-.timkiem-main{
+.timkiem-main {
   width: 100%;
   height: 100%;
   padding: 10px 10px 80px 10px;
   overflow: auto;
 }
-.list-pro{
+.list-pro {
   width: 100%;
   height: 120px;
   background-color: white;
@@ -177,26 +177,26 @@ header .h-mobile-search {
   border-radius: 8px;
   overflow: hidden;
 }
-.list-pro-img{
+.list-pro-img {
   width: 100%;
   height: 120px;
   overflow: hidden;
 }
-.list-pro-img img{
+.list-pro-img img {
   width: 100%;
   height: 120px;
 }
-.list-pro-note{
+.list-pro-note {
   width: 100%;
   height: 120px;
 }
-.list-pro-note span{
+.list-pro-note span {
   display: block;
   width: 100%;
   height: 90px;
   padding: 4px 0px;
 }
-.list-pro-note i{
+.list-pro-note i {
   display: flex;
   align-items: center;
   width: 100%;
@@ -227,7 +227,7 @@ nav {
   width: 100%;
 }
 
-.menu>span {
+.menu > span {
   display: flex;
   align-items: center;
   padding-left: 4px;
@@ -238,7 +238,7 @@ nav {
   user-select: none;
 }
 
-.menu>span:hover {
+.menu > span:hover {
   background-color: rgb(230, 230, 230);
 }
 
@@ -307,11 +307,11 @@ main .list-product {
 
 main .list-product .product {
   width: 300px !important;
-  height: 440px;
+  height: 494px;
   background-color: white;
   margin-bottom: 40px;
-  transition: all linear .2s;
-  cursor: pointer;
+  transition: all linear 0.2s;
+  /* cursor: pointer; */
   user-select: none;
 }
 
@@ -356,7 +356,7 @@ main .list-product .product .pro-img .note span i {
 main .list-product .product .pro-img img {
   width: 100%;
   height: 320px;
-  transition: all linear .2s;
+  transition: all linear 0.2s;
 }
 
 main .list-product .product .pro-listimg {
@@ -379,7 +379,8 @@ main .list-product .product .pro-listimg .pro-listimg-img {
 
 main .list-product .product .pro-listimg img {
   width: 100%;
-  transition: all linear .2s;
+  transition: all linear 0.2s;
+  cursor: pointer;
 }
 
 main .list-product .product .pro-listimg img:hover {
@@ -388,7 +389,7 @@ main .list-product .product .pro-listimg img:hover {
 
 main .list-product .product .pro-tensp {
   width: 100%;
-  height: 50px;
+  height: 44px;
   display: flex;
   align-items: center;
   padding: 0 4px;
@@ -400,9 +401,33 @@ main .list-product .product .pro-tensp span {
   font-weight: 500;
 }
 
+main .list-product .product .pro-chitiet{
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 100%;
+  height: 22px;
+  padding: 0px 4px;
+
+}
+main .list-product .product .pro-chitiet span{
+  display: inline;
+  font-size: 14.5px;
+  font-weight: unset;
+  background-color: var(--cl-text);
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: white;
+  transition: 0.2s ease;
+  cursor: pointer;
+  
+}
+main .list-product .product .pro-chitiet span:hover{
+  background-color: rgb(44, 126, 44);
+}
 main .list-product .product .pro-gia {
   width: 100%;
-  height: 30px;
+  height: 24px;
   display: flex;
   align-items: center;
   padding-left: 4px;
@@ -421,14 +446,101 @@ main .list-product .product .pro-gia i {
   padding-right: 8px;
   font-style: italic;
 }
-
-/* footer */
-footer{
+main .list-product .product .pro-mua{
   width: 100%;
-  height: 200px;
-  background-color: rgb(87, 87, 87);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .list-product .product .pro-mua button{
+  width: 84%;
+  height: 34px;
+  background-color: var(--cl-text);
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
+main .list-product .product .pro-mua button:hover{
+  background-color: rgb(44, 126, 44);
+}
+
+main .list-product .product .pro-mua button span,
+main .list-product .product .pro-mua button i{
+  color: white;
+  font-size: 14.5px;
+  margin: 0px 4px;
+}
+
+
+
+
+/* footer */
+footer {
+  width: 100%;
+  height: 200px;
+  background-color: rgb(121, 121, 121);
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+}
+footer .ft-col {
+  width: 100%;
+  height: 200px;
+}
+footer .ft-col:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .ft-col:first-child span {
+  font-family: "Great Vibes", cursive;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+footer .ft-col .ft-row {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+}
+
+footer i {
+  color: white;
+  font-size: 16px;
+  margin-right: 8px;
+}
+footer span {
+  color: white;
+  font-size: 14.5px;
+}
+
+/* CHI TIET */
+
+.chitiet{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chitiet .f-chitiet{
+  width: 200px;
+  height: 200px;
+  background-color: white;
+}
 /* TABLET */
 
 @media only screen and (max-width: 860px) {
@@ -508,9 +620,32 @@ footer{
     font-size: 24px;
     font-weight: 500;
   }
+  /* footer */
+  footer {
+    display: block;
+    height: 160px;
+    padding: 10px 20px
+  }
+  footer .ft-col:first-child {
+    display: flex;
+    height: 40px;
+  }
+  footer .ft-col:first-child span {
+    font-size: 30px;
+  }
+  footer .ft-col:last-child {
+    height: 100px;
+  }
+  footer .ft-col .ft-row {
+    height: 20px;
+  }
+  footer i {
+    font-size: 12.5px;
+  }
+  footer span {
+    font-size: 12px;
+  }
 }
-
-
 
 /* MOBILE */
 
@@ -554,7 +689,9 @@ footer{
   main .list-product .product .pro-listimg .pro-listimg-img {
     height: 30px;
   }
-
+  main .list-product .product .pro-chitiet span{
+    font-size: 12.5px;
+  }
   main .list-product .product .pro-tensp span {
     font-size: 13px;
     font-weight: 500;
@@ -562,5 +699,11 @@ footer{
 
   main .list-product .product .pro-gia :is(span, i) {
     font-size: 13px;
+  }
+  main .list-product .product .pro-mua button{
+    height: 30px;
+  }
+  main .list-product .product .pro-mua button span{
+    font-size: 12.5px;
   }
 }

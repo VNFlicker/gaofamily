@@ -90,3 +90,12 @@ function ShowIMG(elm) {
   var img = pro.querySelector(".pro-img").getElementsByTagName("img")[0];
   img.src = elm.src;
 }
+
+//Chitiet
+function HideChitiet(event) {
+  var fill = document.querySelector(".chitiet");
+  var form = document.querySelector(".f-chitiet");
+  if (event && event.target !== form) {
+    fill.style.display = 'none';
+  }
+}
