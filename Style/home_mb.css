@@ -85,6 +85,24 @@
   .product .pro-mua button span {
     font-size: 12.5px;
   }
+  /* chitiet */
+  .f-main {
+    width: 100%;
+    height: calc(100% - 24px);
+    display: block;
+    padding: 8px;
+    overflow: auto;
+  }
+  .f-main-img,
+  .f-main-thongtin {
+    width: 100%;
+    height: unset;
+    overflow: auto;
+  }
+  .tt-tensp span {
+    font-size: 20px;
+    font-weight: 500;
+  }
   /* footer */
   footer {
     display: block;

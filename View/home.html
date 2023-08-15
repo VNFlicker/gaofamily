@@ -105,7 +105,7 @@
           </div>
           <!-- Chi tiet -->
           <div class="pro-chitiet">
-            <span>Chi tiết</span>
+            <span onclick="ShowChitiet(this)">Chi tiết</span>
           </div>
           <!-- Gia san pham -->
           <div class="pro-gia">
@@ -175,7 +175,7 @@
           </div>
           <!-- Chi tiet -->
           <div class="pro-chitiet">
-            <span>Chi tiết</span>
+            <span onclick="ShowChitiet(this)">Chi tiết</span>
           </div>
           <!-- Gia san pham -->
           <div class="pro-gia">
@@ -228,7 +228,37 @@
         </div>
       </footer>
     </main>
-
+    <!-- Chitiet sanpham -->
+    <div class="chitiet">
+      <div class="f-chitiet">
+        <!-- form close -->
+        <div class="f-close">
+          <i class="fa-solid fa-xmark fa-fade" onclick="HideChitiet()"></i>
+        </div>
+        <!-- form main -->
+        <div class="f-main">
+          <div class="f-main-img">
+            <img src="../Data/product/20230731175055361/1.jpg" alt="" />
+            <img src="../Data/product/20230731175055361/2.jpg" alt="" />
+            <img src="../Data/product/20230731175055361/3.jpg" alt="" />
+            <img src="../Data/product/20230731175055361/4.jpg" alt="" />
+            <img src="../Data/product/20230731175055361/1.jpg" alt="" />
+          </div>
+          <div class="f-main-thongtin">
+            <div class="tt-tensp">
+              <span>Áo Thun Trẻ Em Cổ Tròn Cơ Bản Cotton USA</span>
+            </div>
+            <div class="tt-chitiet">
+              <span
+                >Bộ Quần Áo Thun Nam Hottrend In Họa Tiết Chữ UMKLSU Tinh Tế. Thời Trang Zenkonam MEN QA 129</span>
+              <span>Thiết kế thời trang, đơn giản không kém phần hiện đại</span>
+              <span>Kiểu dáng gọn nhẹ, năng động</span>
+              <span>Chất vải thun mềm mại, dễ thấm hút mồ hôi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="../Script/home.js"></script>
   </body>
 </html>

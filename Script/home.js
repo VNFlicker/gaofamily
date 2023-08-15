@@ -10,3 +10,13 @@ function HideNAV(event) {
     nav.style.display = "none";
   }
 }
+
+function ShowChitiet(elm){
+  var chitiet = document.querySelector('.chitiet')
+  chitiet.style.display = 'flex';
+}
+
+function HideChitiet(){
+  var chitiet = document.querySelector('.chitiet')
+    chitiet.style.display = 'none';
+}
