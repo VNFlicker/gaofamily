@@ -1,0 +1,134 @@
+@media only screen and (max-width: 760px) {
+    body {
+      margin: 0;
+    }
+    header {
+      height: 40px;
+    }
+    header .h-logo span {
+      font-size: 28px;
+    }
+    header .h-menu {
+      display: none;
+    }
+    header .mb-menu {
+      display: block;
+    }
+    /* title */
+    main .main-title {
+      height: 50px;
+    }
+    main .main-title span {
+      font-size: 22px;
+      margin-left: 40px;
+    }
+    main .main-title img {
+      width: 50px;
+      height: 50px;
+    }
+    /* product */
+    main .nam-product,
+    main .nu-product,
+    main .treem-product {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 10px;
+    }
+  
+    .product {
+      width: 100% !important;
+      height: unset;
+      margin-bottom: 20px;
+    }
+  
+    .product .pro-img {
+      height: unset;
+    }
+  
+    .product .pro-img img {
+      height: unset;
+    }
+  
+    .product .pro-img .note span {
+      height: 24px;
+      padding: 0px 2px;
+      font-size: 12px;
+    }
+  
+    .product .pro-img .note span i {
+      font-size: 10px;
+    }
+  
+    .product .pro-listimg {
+      gap: 2px;
+      height: 30px;
+    }
+  
+    .product .pro-listimg .pro-listimg-img {
+      height: 30px;
+    }
+    .product .pro-chitiet span {
+      font-size: 12.5px;
+    }
+    .product .pro-tensp span {
+      font-size: 13px;
+      font-weight: 500;
+    }
+  
+    .product .pro-gia :is(span, i) {
+      font-size: 13px;
+    }
+    .product .pro-mua button {
+      height: 30px;
+    }
+    .product .pro-mua button span {
+      font-size: 12.5px;
+    }
+    /* chitiet */
+    .f-main {
+      width: 100%;
+      height: calc(100% - 24px);
+      display: flex;
+      flex-wrap: wrap;
+      padding: 8px;
+      overflow: auto;
+    }
+    .f-main-img,
+    .f-main-thongtin {
+      width: 100%;
+      height: unset;
+      overflow: auto;
+    }
+    .tt-tensp span {
+      font-size: 20px;
+      font-weight: 500;
+    }
+    /* footer */
+    footer {
+      display: block;
+      height: 160px;
+      padding: 10px 20px;
+      border-radius: 24px 24px 0 0;
+    }
+    footer .ft-col:first-child {
+      display: flex;
+      height: 40px;
+    }
+    footer .ft-col:first-child span {
+      font-size: 30px;
+    }
+    footer .ft-col:last-child {
+      height: 100px;
+    }
+    footer .ft-col .ft-row {
+      height: 20px;
+    }
+    footer i {
+      font-size: 12.5px;
+    }
+    footer span {
+      font-size: 12px;
+    }
+  }
+  

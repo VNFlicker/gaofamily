@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/1a0d187c62.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../Style/index.css" />
+    <link rel="stylesheet" href="../Style/index_mb.css" />
+    <link rel="icon" type="image/x-icon" href="../Data/layout/favicon.png" />
+    <title>Gạo || Family</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <div class="h-logo">
+        <span>Gạo Family</span>
+      </div>
+      <div class="h-menu">
+        <div class="h-danhmuc">
+            <a href="../View/home.html">Trang chủ</a>
+        </div>
+        <div class="h-danhmuc">
+            <span>Danh mục sản phẩm</span>
+            <div class="h-danhmuc-list">
+                <div class="h-danhmuc-list-row" onclick="LoadSP('Nam-Aothun')">
+                    <div class="h-danhmuc-list-row-img">
+                        <img src="../Data/product/20230731175055361/3.jpg" alt="">
+                    </div>
+                    <div class="h-danhmuc-list-row-danhmuc">
+                        <span>Áo thun</span>
+                    </div>
+                </div>
+                <div class="h-danhmuc-list-row" onclick="LoadSP('Nam-Aodai')">
+                    <div class="h-danhmuc-list-row-img">
+                        <img src="../Data/product/20230731175055361/2.jpg" alt="">
+                    </div>
+                    <div class="h-danhmuc-list-row-danhmuc">
+                        <span>Áo dài- thu đông</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- mobile -->
+      <div class="mb-menu" onclick="ShowNAV()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </header>
+    <!-- NAV MOBILE -->
+    <nav onclick="HideNAV(event)">
+      <div class="nav-form">
+        <a href="../View/home.html">Trang chủ</a>
+        <div class="nav-form-row">
+            <img src="../Data/product/20230731175055361/1.jpg" alt="">
+            <span>Áo thun</span>
+        </div>
+        <div class="nav-form-row">
+            <img src="../Data/product/20230731175055361/3.jpg" alt="">
+            <span>Áo dài - thu dông</span>
+        </div>
+      </div>
+    </nav>
+    <!-- background -->
+    <div class="background">
+      <img src="../Data/layout/bg-nam.png" alt="" />
+    </div>
+    <!-- main -->
+    <main>
+      <!-- title -->
+      <div class="main-title">
+        <span id="span-title">Sản phẩm mới cập nhật</span>
+        <img src="../Data/layout/newtag.png" alt="" />
+      </div>
+      <!-- load 10 sản phẩm mới nhất -->
+      <div class="nam-product">
+        <!-- sản phẩm -->
+        <div class="product">
+          <!-- image -->
+          <div class="pro-img">
+            <img src="../Data/product/20230731174915717/1.jpg" alt="" />
+            <div class="note">
+              <span>Đã bán 1.5k</span>
+              <span>4.5<i class="fa-solid fa-star"></i></span>
+            </div>
+          </div>
+          <!-- list img -->
+          <div class="pro-listimg">
+            <div class="pro-listimg-img">
+              <img
+                onclick="ShowIMG(this)"
+                src="../Data/product/20230731174915717/1.jpg"
+                alt=""
+              />
+            </div>
+            <div class="pro-listimg-img">
+              <img
+                onclick="ShowIMG(this)"
+                src="../Data/product/20230731174915717/2.jpg"
+                alt=""
+              />
+            </div>
+            <div class="pro-listimg-img">
+              <img
+                onclick="ShowIMG(this)"
+                src="../Data/product/20230731174915717/3.jpg"
+                alt=""
+              />
+            </div>
+            <div class="pro-listimg-img">
+              <img
+                onclick="ShowIMG(this)"
+                src="../Data/product/20230731174915717/4.jpg"
+                alt=""
+              />
+            </div>
+            <div class="pro-listimg-img">
+              <img
+                onclick="ShowIMG(this)"
+                src="../Data/product/20230731174915717/5.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <!-- thongtin -->
+          <div class="pro-tensp">
+            <span>Áo Thun Trẻ Em Cổ Tròn Cơ Bản Cotton USA</span>
+          </div>
+          <!-- Chi tiet -->
+          <div class="pro-chitiet">
+            <span onclick="ShowChitiet(this)">Chi tiết</span>
+          </div>
+          <!-- Gia san pham -->
+          <div class="pro-gia">
+            <span>50.000</span>
+            <i class="fa-solid fa-dong-sign"></i>
+            <i class="fa-solid fa-arrow-right"></i>
+            <span>80.000</span>
+            <i class="fa-solid fa-dong-sign"></i>
+          </div>
+          <!-- Button Mua -->
+          <div class="pro-mua">
+            <button>
+              <i class="fa-solid fa-cart-shopping"></i><span>Mua sản phẩm</span>
+            </button>
+          </div>
+        </div>
+        <div class="product">
+          <!-- image -->
+          <div class="pro-img">
+            <img src="../Data/product/20230731175055361/1.jpg" alt="" />
+            <div class="note">
+              <span>Đã bán 1.5k</span>
+              <span>4.5<i class="fa-solid fa-star"></i></span>
+            </div>
+          </div>
+          <!-- list img -->
+          <div class="pro-listimg">
+            <div class="pro-listimg-img">
+              <img
+                onclick="ShowIMG(this)"
+                src="../Data/product/20230731175055361/1.jpg"
+                alt=""
+              />
+            </div>
+            <div class="pro-listimg-img">
+              <img
+                onclick="ShowIMG(this)"
+                src="../Data/product/20230731175055361/2.jpg"
+                alt=""
+              />
+            </div>
+            <div class="pro-listimg-img">
+              <img
+                onclick="ShowIMG(this)"
+                src="../Data/product/20230731175055361/3.jpg"
+                alt=""
+              />
+            </div>
+            <div class="pro-listimg-img">
+              <img
+                onclick="ShowIMG(this)"
+                src="../Data/product/20230731175055361/4.jpg"
+                alt=""
+              />
+            </div>
+            <div class="pro-listimg-img">
+              <img
+                onclick="ShowIMG(this)"
+                src="../Data/product/20230731175055361/1.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <!-- thongtin -->
+          <div class="pro-tensp">
+            <span>Áo Thun Trẻ Em Cổ Tròn Cơ Bản Cotton USA</span>
+          </div>
+          <!-- Chi tiet -->
+          <div class="pro-chitiet">
+            <span onclick="ShowChitiet(this)">Chi tiết</span>
+          </div>
+          <!-- Gia san pham -->
+          <div class="pro-gia">
+            <span>50.000</span>
+            <i class="fa-solid fa-dong-sign"></i>
+            <i class="fa-solid fa-arrow-right"></i>
+            <span>80.000</span>
+            <i class="fa-solid fa-dong-sign"></i>
+          </div>
+          <!-- Button Mua -->
+          <div class="pro-mua">
+            <button>
+              <i class="fa-solid fa-cart-shopping"></i><span>Mua sản phẩm</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- footer -->
+      <footer>
+        <div class="ft-col">
+          <span>Gạo Family</span>
+        </div>
+        <div class="ft-col">
+          <div class="ft-row">
+            <i class="fa-brands fa-facebook"></i>
+            <span>https://www.facebook.com/VNFlicker/</span>
+          </div>
+          <div class="ft-row">
+            <i class="fa-solid fa-envelope"></i>
+            <span>gaofamily2022@gmail.com</span>
+          </div>
+          <div class="ft-row">
+            <i class="fa-solid fa-phone"></i>
+            <span>0389 608 077</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- Chitiet sanpham -->
+    <div class="chitiet">
+      <div class="f-chitiet">
+        <!-- form close -->
+        <div class="f-close">
+          <i class="fa-solid fa-xmark fa-fade" onclick="HideChitiet()"></i>
+        </div>
+        <!-- form main -->
+        <div class="f-main">
+          <div class="f-main-img">
+            <img src="../Data/product/20230731175055361/1.jpg" alt="" />
+            <img src="../Data/product/20230731175055361/2.jpg" alt="" />
+            <img src="../Data/product/20230731175055361/3.jpg" alt="" />
+            <img src="../Data/product/20230731175055361/4.jpg" alt="" />
+            <img src="../Data/product/20230731175055361/1.jpg" alt="" />
+          </div>
+          <div class="f-main-thongtin">
+            <div class="tt-tensp">
+              <span>Áo Thun Trẻ Em Cổ Tròn Cơ Bản Cotton USA</span>
+            </div>
+            <div class="tt-chitiet">
+              <span
+                >Bộ Quần Áo Thun Nam Hottrend In Họa Tiết Chữ UMKLSU Tinh Tế.
+                Thời Trang Zenkonam MEN QA 129</span
+              >
+              <span>Thiết kế thời trang, đơn giản không kém phần hiện đại</span>
+              <span>Kiểu dáng gọn nhẹ, năng động</span>
+              <span>Chất vải thun mềm mại, dễ thấm hút mồ hôi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../Script/thoi_trang_nam.js"></script>
+  </body>
+</html>
