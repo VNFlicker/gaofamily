@@ -89,7 +89,7 @@
   .f-main {
     width: 100%;
     height: calc(100% - 24px);
-    display: block;
+    flex-wrap: wrap;
     padding: 8px;
     overflow: auto;
   }
