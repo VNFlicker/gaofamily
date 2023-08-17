@@ -6,7 +6,7 @@
   --cl-header: rgb(246, 249, 255);
   --cl-text: rgb(4, 65, 4);
   --cl-giasp: rgb(231, 35, 35);
-  --cl-footer: rgb(121, 121, 121);
+  --cl-footer: rgb(78, 78, 78);
 }
 
 * {
@@ -241,7 +241,7 @@ main .treem-product {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 4px;
-  padding: 0px 4px;
+  padding: 1px 4px;
   overflow: hidden;
 }
 
@@ -394,6 +394,10 @@ main .treem-product {
 .f-main-img{
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
   overflow: auto;
 }
 
@@ -401,9 +405,10 @@ main .treem-product {
 .f-main-img::-webkit-scrollbar {
   width: 1px;
 }
-
+ 
 .f-main-img img{
-  width: 100%;
+  width: 94%;
+  object-fit: cover;
 }
 .f-main-thongtin{
   width: 100%;

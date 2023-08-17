@@ -6,7 +6,7 @@
   --cl-header: rgb(246, 249, 255);
   --cl-text: rgb(4, 65, 4);
   --cl-giasp: rgb(231, 35, 35);
-  --cl-footer: rgb(121, 121, 121);
+  --cl-footer: rgb(78, 78, 78);
 }
 
 * {
@@ -67,17 +67,12 @@ header .h-logo span {
   font-weight: bold;
   text-shadow: 1px 1px 1px var(--cl-text);
 }
-header .h-menu{
+header .h-menu {
   display: flex;
   flex-wrap: nowrap;
 }
-header .h-menu a {
-  text-decoration: none;
-  padding: 8px;
-  position: relative;
-  font-weight: 500;
-}
-header .h-menu .h-danhmuc{
+
+header .h-menu .h-danhmuc {
   height: 60px;
   display: flex;
   align-items: center;
@@ -85,13 +80,20 @@ header .h-menu .h-danhmuc{
   margin-left: 10px;
   position: relative;
 }
-header .h-menu .h-danhmuc span{
+
+header .h-menu .h-danhmuc a {
+  text-decoration: none;
+  padding: 8px;
   font-weight: 500;
 }
-header .h-menu .h-danhmuc:hover .h-danhmuc-list{
+
+header .h-menu .h-danhmuc span {
+  font-weight: 500;
+}
+header .h-menu .h-danhmuc:hover .h-danhmuc-list {
   display: block;
 }
-.h-danhmuc-list{
+.h-danhmuc-list {
   position: absolute;
   right: 0;
   top: 60px;
@@ -101,30 +103,30 @@ header .h-menu .h-danhmuc:hover .h-danhmuc-list{
   padding: 8px;
   display: none;
 }
-.h-danhmuc-list-row{
+.h-danhmuc-list-row {
   width: 100%;
   height: 60px;
   display: grid;
   grid-template-columns: 80px 1fr;
-  transition: .4s ease;
+  transition: 0.4s ease;
   cursor: pointer;
 }
-.h-danhmuc-list-row:hover{
+.h-danhmuc-list-row:hover {
   padding-left: 20px;
 }
-.h-danhmuc-list-row-img{
+.h-danhmuc-list-row-img {
   width: 100%;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.h-danhmuc-list-row-img img{
+.h-danhmuc-list-row-img img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
-.h-danhmuc-list-row-danhmuc{
+.h-danhmuc-list-row-danhmuc {
   width: 100%;
   display: flex;
   align-items: center;
@@ -158,6 +160,7 @@ nav .nav-form {
   background-color: white;
   padding: 14px;
   border-radius: 8px;
+  font-weight: 500;
 }
 nav .nav-form a {
   display: flex;
@@ -166,16 +169,21 @@ nav .nav-form a {
   height: 40px;
   border-radius: 4px;
   text-decoration: none;
+  color: rgb(236, 58, 26);
   user-select: none;
 }
-nav .nav-form .nav-form-row{
+nav .nav-form .nav-form-row {
   width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: left;
+  transition: 0.2s linear;
 }
-nav .nav-form .nav-form-row img{
+nav .nav-form .nav-form-row:hover {
+  padding-left: 14px;
+}
+nav .nav-form .nav-form-row img {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -248,7 +256,6 @@ main .treem-product {
   height: 320px;
   overflow: hidden;
   position: relative;
-
 }
 
 .product .pro-img .note {
@@ -401,7 +408,7 @@ main .treem-product {
   margin: 0px 4px;
 }
 /* chi tiet san pham */
-.chitiet{
+.chitiet {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -413,26 +420,26 @@ main .treem-product {
   justify-content: center;
   z-index: 1001;
 }
-.f-chitiet{
+.f-chitiet {
   width: 90%;
   height: calc(100vh - 200px);
   background-color: white;
   border-radius: 4px;
 }
-.f-close{
+.f-close {
   width: 100%;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: right;
 }
-.f-close i{
+.f-close i {
   font-size: 24px;
   color: red;
   margin-right: 6px;
   cursor: pointer;
 }
-.f-main{
+.f-main {
   width: 100%;
   height: calc(100% - 24px);
   display: grid;
@@ -440,7 +447,7 @@ main .treem-product {
   gap: 10px;
   padding: 8px;
 }
-.f-main-img{
+.f-main-img {
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -451,27 +458,26 @@ main .treem-product {
   width: 1px;
 }
 
-.f-main-img img{
+.f-main-img img {
   width: 100%;
 }
-.f-main-thongtin{
+.f-main-thongtin {
   width: 100%;
   height: 100%;
   overflow: auto;
 }
-.tt-tensp{
+.tt-tensp {
   width: 100%;
-
 }
-.tt-tensp span{
+.tt-tensp span {
   font-size: 30px;
   font-weight: 500;
 }
-.tt-chitiet{
+.tt-chitiet {
   width: 100%;
   line-height: 24px;
 }
-.tt-chitiet span{
+.tt-chitiet span {
   font-size: 16px;
   display: block;
   padding-left: 8px;
