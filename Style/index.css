@@ -168,6 +168,7 @@ nav .nav-form a {
   justify-content: center;
   height: 40px;
   border-radius: 4px;
+  background-color: rgb(216, 216, 216);
   text-decoration: none;
   color: rgb(236, 58, 26);
   user-select: none;

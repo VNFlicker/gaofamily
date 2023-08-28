@@ -83,7 +83,7 @@ header .h-menu a::before {
   height: 4px;
   border-radius: 2px;
   background-color: var(--cl-text);
-  transition: 0.2s linear;
+  transition: 0.4s ease;
 }
 
 header .h-menu a:hover::before {
@@ -124,6 +124,7 @@ nav .nav-form a {
   align-items: center;
   justify-content: center;
   height: 40px;
+  font-weight: 500;
   border-radius: 4px;
   text-decoration: none;
   user-select: none;
