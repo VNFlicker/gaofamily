@@ -1,0 +1,25 @@
+using Microsoft.Office.Interop.Outlook;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Mail;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Mail.View
+{
+    public partial class mail : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Application outlookApp = new Application();
+            MailItem mailItem = (MailItem)outlookApp.CreateItem(OlItemType.olMailItem);
+            mailItem.To = "tzoong29692@gmail.com";
+            mailItem.Subject = "Test Email";
+            mailItem.Body = "This is a test email sent from ASP.NET";
+            mailItem.Send();
+            Response.Write("OK");
+        }
+    }
+}

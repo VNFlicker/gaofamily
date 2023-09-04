@@ -1,0 +1,4 @@
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            string userName = identity.Name;
+            bool isAuthenticated = principal.Identity.IsAuthenticated;

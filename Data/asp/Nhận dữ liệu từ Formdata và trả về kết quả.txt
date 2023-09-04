@@ -1,0 +1,36 @@
+     using System.Configuration; 
+      
+string resol = "";
+
+            //if (Request.HttpMethod == "POST")
+            //{
+            string manv = Request.Form["manv"];
+
+            string connectionString = ConfigurationManager.AppSettings["ketnoi"];
+
+                SqlConnection connection = new SqlConnection(connectionString);
+                connection.Open();
+
+                string sql = "SELECT MaNV,TenNV FROM DanhsachCNV WHERE MaNV='" + manv + "'";
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    // Đọc dữ liệu từ cột và hàng
+                    resol = reader.GetString(0) + "_" + reader.GetString(1);
+                }
+
+                reader.Close();
+
+                connection.Close();
+            //}
+            Response.Write(resol);
+            Response.End();
+
+
+Biến toàn cục trong Config
+	<appSettings>
+		<add key="ketnoi" value="Data Source=DESKTOP-G2J9NKT\SQLEXPRESS;Initial Catalog=Congnhanvien;User id=sa;Password=Flicker" />
+	</appSettings>

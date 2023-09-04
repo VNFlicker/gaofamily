@@ -1,0 +1,56 @@
+            string folderPath = Server.MapPath("~/Data/img/");
+            DirectoryInfo directoryInfo = new DirectoryInfo(folderPath);
+            FileInfo[] fileInfos = directoryInfo.GetFiles("*.*", SearchOption.AllDirectories);
+            Array.Sort(fileInfos, delegate (FileInfo fileInfo1, FileInfo fileInfo2)
+            {
+                return fileInfo2.CreationTime.CompareTo(fileInfo1.CreationTime);
+            });
+
+            int count = 0;
+            List<object> images = new List<object>();
+            foreach (FileInfo fileInfo in fileInfos)
+            {
+                if (fileInfo.Extension.ToLower() == ".jpg" || fileInfo.Extension.ToLower() == ".jpeg" || fileInfo.Extension.ToLower() == ".png")
+                {
+                    string imageUrl =   fileInfo.Name;
+                    string imageDate = fileInfo.CreationTime.ToString("yyyy-MM-dd HH:mm:ss");
+                    images.Add(new { url = imageUrl, date = imageDate });
+                    count++;
+			//Nếu lấy số lượng ảnh thì thêm dòng dưới ( Lấy 5 ảnh)
+                    if (count >= 5)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            string json = new JavaScriptSerializer().Serialize(images);
+            Response.Clear();
+            Response.ContentType = "application/json; charset=utf-8";
+            Response.Write(json);
+            Response.End();
+
+
+
+JAVASCRIPT
+Getimg();
+function Getimg() {
+    var ajax = new XMLHttpRequest();
+    var main = document.querySelector('main');
+    main.innerHTML = '';
+    ajax.onreadystatechange = function () {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            var data = JSON.parse(this.responseText);
+            for (var i = 0; i < data.length; i++) {
+                var box = document.createElement('div');
+                box.className = 'box-img';
+                var t = new Date();
+                box.innerHTML += '<img src="../Data/img/' + data[i].Name + '?' + t.getTime() +'" alt="">';
+                box.innerHTML += ' <div class="date"><span class="material-symbols-rounded">calendar_month</span><span>' + data[i].Date + '</span></div>';
+                main.appendChild(box);
+            }
+        }
+    }
+    ajax.open("GET", "../Funct/Getnewimg.aspx", true)
+    ajax.send();
+}

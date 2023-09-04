@@ -1,0 +1,3 @@
+	<appSettings>
+		<add key="ketnoi" value="Data Source=DESKTOP-G2J9NKT\SQLEXPRESS;Initial Catalog=JIG;User id=sa;Password=Flicker" />
+	</appSettings>

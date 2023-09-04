@@ -1,0 +1,24 @@
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var response = JSON.parse(this.responseText);
+    // Xử lý phản hồi ở đây
+  }
+};
+xhttp.open("POST", "yourpage.aspx", true);
+var formData = new FormData(); // Đối tượng FormData
+formData.append("file", fileInput.files[0]); // Thêm file vào FormData
+var json = { "key1": "value1", "key2": "value2" }; // Đối tượng JSON
+xhttp.send(formData, "json=" + JSON.stringify(json));
+
+
+
+
+
+using System.Web.Script.Serialization;
+//...
+string json = Request.Form["json"]; // Lấy chuỗi JSON
+JavaScriptSerializer serializer = new JavaScriptSerializer();
+Dictionary<string, string> dict = serializer.Deserialize<Dictionary<string, string>>(json); // Chuyển đổi chuỗi JSON sang đối tượng Dictionary
+HttpFileCollection files = Request.Files; // Lấy tập tin từ đối tượng FormData
+// Xử lý đối tượng FormData và đối tượng JSON ở đây

@@ -1,0 +1,20 @@
+            string ketnoi = ConfigurationManager.AppSettings["ketnoi"];
+            string main = Request.Form["main"];
+            string phanloai = Request.Form["phanloai"];
+            string query = "SELECT * FROM Data WHERE Main = @main AND Phanloai = @phanloai ORDER BY Model FOR JSON AUTO";
+            SqlConnection con = new SqlConnection(ketnoi);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@main", main);
+            cmd.Parameters.AddWithValue("@phanloai", phanloai);
+            string json = (string)cmd.ExecuteScalar();
+            con.Close();
+            if (json != null)
+            {
+                Response.Write(json);
+            }
+            else
+            {
+                Response.Write("NULL");
+            }
+            Response.End();

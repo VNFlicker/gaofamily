@@ -1,0 +1,40 @@
+function Thongtinquanly() {
+    var staft = document.getElementById('staft');
+    var chief = document.getElementById('chief');
+    var dataform = new FormData();
+    dataform.append('dongmay', document.getElementById('model').value);
+    var ajax = new XMLHttpRequest();
+    ajax.onreadystatechange = function () {
+        if (ajax.status == 200 && ajax.readyState == 4) {
+            var response = JSON.parse(this.responseText);
+            var jsstaft = response.json1;
+            var jschief = response.json2;
+            
+        }
+    }
+    ajax.open('POST', '../Funct/Thongtinquanly.aspx', true);
+    ajax.send(dataform);
+}
+
+
+
+            string dongmay = Request.Form["dongmay"];
+            string connectionString = ConfigurationManager.AppSettings["ketnoi"];
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            //Lấy thông tin Staft
+            SqlCommand command = new SqlCommand("SELECT Dongmay,IDStaft,NameStaft FROM DataStaft WHERE Dongmay= @dongmay FOR JSON AUTO", connection);
+            command.Parameters.AddWithValue("dongmay", dongmay);
+            string jsonstaft = (string)command.ExecuteScalar();
+            //Lấy thông tin Staft
+            command = new SqlCommand("SELECT Dongmay,IDChief,NameChief FROM DataChief WHERE Dongmay= @dongmay FOR JSON AUTO", connection);
+            command.Parameters.AddWithValue("dongmay", dongmay);
+            string jsonchief = (string)command.ExecuteScalar();
+            //Gộp 2 json và gửi ra ngoài
+            Dictionary<string, object> jsonDict = new Dictionary<string, object>();
+            jsonDict.Add("json1", jsonstaft); // obj1 là đối tượng JSON thứ nhất
+            jsonDict.Add("json2", jsonchief); // obj2 là đối tượng JSON thứ hai
+            string jsonResponse = new JavaScriptSerializer().Serialize(jsonDict);
+            Response.ContentType = "application/json";
+            Response.Write(jsonResponse);

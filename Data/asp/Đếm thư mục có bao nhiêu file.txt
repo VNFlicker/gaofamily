@@ -1,0 +1,4 @@
+            string folderPath = Server.MapPath("~/img");
+            int fileCount = Directory.GetFiles(folderPath).Length;
+            Response.Write("Số lượng file trong thư mục là: " + fileCount);
+            Response.End();

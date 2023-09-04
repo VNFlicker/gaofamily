@@ -1,0 +1,41 @@
+ var table = document.getElementById('bangnguoithaotac');
+    var data = []; // Tạo một mảng JSON rỗng
+    for (var i = 1; i < table.rows.length-1; i++) { // Lặp qua các hàng của bảng
+        var row = table.rows[i]; // Lấy hàng thứ i
+        var rowData = {}; // Tạo một đối tượng JSON mới cho mỗi hàng
+        rowData["id"] =id;
+        rowData["manv"] = row.cells[1].getElementsByTagName('input')[0].value;
+        rowData["tennv"] = row.cells[2].getElementsByTagName('input')[0].value;
+        rowData["congdoan"] = row.cells[3].getElementsByTagName('input')[0].value;
+        rowData["ketqua"] = row.cells[4].getElementsByTagName('select')[0].value;
+        data.push(rowData); // Thêm đối tượng JSON mới vào mảng JSON
+    }
+    var jsonData = JSON.stringify(data); // Chuyển đổi mảng JSON thành chuỗi JSON
+    dataform.append('json', jsonData);
+    //
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    };
+    xhttp.open("POST", "../Funct/Luudulieu.aspx", true);
+    xhttp.send(dataform);
+
+
+
+C#
+    string jsonData = Request.Form["json"]; // Nhận chuỗi JSON từ AJAX
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                dynamic row = serializer.Deserialize(jsonData, typeof(object)); // Chuyển đổi chuỗi JSON thành đối tượng JSON
+                cmd = new SqlCommand("INSERT INTO NTT (ID, MaNV,TenNV,Congdoan,Ketqua) VALUES (@id, @manv,@tennv,@congdoan,@ketqua)", con);
+                foreach (var item in row)
+                {
+                    cmd.Parameters.AddWithValue("@id", item["id"]);
+                    cmd.Parameters.AddWithValue("@manv", item["manv"]);
+                    cmd.Parameters.AddWithValue("@tennv", item["tennv"]);
+                    cmd.Parameters.AddWithValue("@congdoan", item["congdoan"]);
+                    cmd.Parameters.AddWithValue("@ketqua", item["ketqua"]);
+                    cmd.ExecuteNonQuery(); // Thực hiện lệnh INSERT INTO
+                    cmd.Parameters.Clear(); // Xóa các tham số để sử dụng lại lệnh
+                }

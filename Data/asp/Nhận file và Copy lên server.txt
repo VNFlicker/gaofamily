@@ -1,0 +1,8 @@
+            if (Request.Files.Count > 0)
+            {
+                HttpPostedFile file = Request.Files[0];
+                string fileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+                string filePath = Path.Combine(Server.MapPath("~/Data/img/"), fileName);
+                file.SaveAs(filePath);
+                Response.Write("File uploaded successfully");
+            }
