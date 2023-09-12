@@ -1,0 +1,89 @@
+/
+/
+/
+/Tạo 1 Class chứa hàm lấy dữ liệu và trả về JSON
+/
+/
+using System.Configuration;
+using System.Net.NetworkInformation;
+using System.Web.Helpers;
+using System.Data.SqlClient;
+using System;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+
+namespace WebApplication1.Class
+{
+    public class connect
+    {
+        private string ketnoi = ConfigurationManager.AppSettings["ketnoi"];
+
+        public string GetJsonData(string sqlQuery, Dictionary<string, object> parameters = null)
+        {
+            SqlConnection connection = new SqlConnection(ketnoi);
+            SqlCommand command = new SqlCommand(sqlQuery, connection);
+
+            if (parameters != null)
+            {
+                foreach (var parameter in parameters)
+                {
+                    command.Parameters.AddWithValue(parameter.Key, parameter.Value);
+                }
+            }
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<Dictionary<string, object>> data = new List<Dictionary<string, object>>();
+
+            // Đọc dữ liệu từ SqlDataReader và thêm vào danh sách
+            while (reader.Read())
+            {
+                Dictionary<string, object> item = new Dictionary<string, object>();
+
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    string columnName = reader.GetName(i);
+                    object value = reader.GetValue(i);
+                    item[columnName] = value;
+                }
+
+                data.Add(item);
+            }
+
+            // Chuyển đổi dữ liệu thành JSON
+            connection.Close();
+            string jsonData = JsonConvert.SerializeObject(data);
+            return jsonData;
+        }
+    }
+}
+
+/
+/
+/
+/
+/Gọi hàm nếu có chứa Parameter
+/
+/
+string sqlQuery = "SELECT * FROM Customers WHERE Country = @Country";
+
+Dictionary<string, object> parameters = new Dictionary<string, object>();
+parameters.Add("@Country", "USA");
+
+connect myClass = new connect();
+    string jsonData = myClass.GetJsonData(sqlQuery);
+    Response.ContentType = "application/json";
+    Response.Write(jsonData);
+/
+/
+/
+/Gọi hàm nếu không chứa Parameter
+/
+    string sqlQuery = "SELECT * FROM Danhmuc";
+
+    connect myClass = new connect();
+    string jsonData = myClass.GetJsonData(sqlQuery);
+    Response.ContentType = "application/json";
+    Response.Write(jsonData);
+

@@ -1,0 +1,34 @@
+     Cài đặt Newtonsoft.json   
+
+
+string ketnoi = ConfigurationManager.AppSettings["ketnoi"];
+        string hangmuc = Request.Form["hangmuc"];
+        string sql = "SELECT * FROM Danhmuc";
+        SqlConnection con = new SqlConnection(ketnoi);
+        con.Open();
+        SqlCommand cmd = new SqlCommand(sql, con);
+        SqlDataReader reader = cmd.ExecuteReader();
+
+        List<Dictionary<string, object>> data = new List<Dictionary<string, object>>();
+
+        // Đọc dữ liệu từ SqlDataReader và thêm vào danh sách
+        while (reader.Read())
+        {
+            Dictionary<string, object> item = new Dictionary<string, object>();
+
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                string columnName = reader.GetName(i);
+                object value = reader.GetValue(i);
+                item[columnName] = value;
+            }
+
+            data.Add(item);
+        }
+
+        // Chuyển đổi dữ liệu thành JSON
+        string jsonData = JsonConvert.SerializeObject(data);
+
+        Response.ContentType = "application/json";
+        // Hiển thị dữ liệu JSON
+        Response.Write(jsonData);
