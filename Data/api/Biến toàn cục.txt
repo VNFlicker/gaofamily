@@ -1,0 +1,57 @@
+Trong file appsettings.json, thêm một khóa mới để lưu trữ chuỗi kết nối:
+json
+Copy
+{
+  "ConnectionStrings": {
+    "MyConnectionString": "YourConnectionStringHere"
+  },
+  // Các cấu hình khác trong appsettings.json
+}
+Trong phần cấu hình của ứng dụng, đăng ký IConfiguration để có thể truy cập vào các giá trị trong appsettings.json:
+csharp
+Copy
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+// Cấu hình Swagger và các dịch vụ khác
+builder.Services.AddCors();
+builder.Services.AddControllers();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Cấu hình middleware và pipeline
+if (app.Environment.IsDevelopment())
+{
+    // ... Cấu hình Swagger và CORS
+
+    app.UseDeveloperExceptionPage();
+}
+
+// ... Cấu hình middleware và pipeline tiếp theo
+
+app.Run();
+Trong các file API, tiến hành tiêm IConfiguration vào để có thể đọc giá trị chuỗi kết nối từ appsettings.json:
+csharp
+Copy
+public class MyController : ControllerBase
+{
+    private readonly IConfiguration _configuration;
+
+    public MyController(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+
+    [HttpGet]
+    public IActionResult Get()
+    {
+        // Đọc giá trị chuỗi kết nối
+        string connectionString = _configuration.GetConnectionString("MyConnectionString");
+        
+        // ... Xử lý logic của action
+        
+        return Ok();
+    }
+}

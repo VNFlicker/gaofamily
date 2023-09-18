@@ -1,0 +1,102 @@
+C#
+
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.IO;
+
+
+namespace API.Controllers
+{
+    [ApiController]
+    [Route("api/images")]
+    public class GetimageController : ControllerBase
+    {
+        [HttpGet]
+        public IActionResult GetImageNames()
+        {
+            // Đường dẫn tới thư mục "Data/imgs" trong dự án của bạn
+            string directoryPath = Path.Combine("Data", "imgs");
+
+            // Kiểm tra xem thư mục có tồn tại hay không
+            if (!Directory.Exists(directoryPath))
+            {
+                return NotFound(); // Trả về mã lỗi 404 nếu không tìm thấy thư mục
+            }
+
+            // Lấy danh sách tên các tệp tin trong thư mục
+            var fileNames = Directory.GetFiles(directoryPath)
+                .Select(Path.GetFileName)
+                .ToList();
+
+            return Ok(fileNames); // Trả về danh sách tên các tệp tin
+        }
+
+        [HttpGet("{imageName}")]
+        public IActionResult GetImage(string imageName)
+        {
+            // Tạo đường dẫn tới thư mục "Data/imgs" trong dự án của bạn
+            string imagePath = Path.Combine("Data", "imgs", imageName);
+
+            // Kiểm tra xem hình ảnh có tồn tại hay không
+            if (!System.IO.File.Exists(imagePath))
+            {
+                return NotFound(); // Trả về mã lỗi 404 nếu không tìm thấy hình ảnh
+            }
+
+            // Đọc dữ liệu của hình ảnh
+            byte[] imageData = System.IO.File.ReadAllBytes(imagePath);
+
+            // Trả về hình ảnh dưới dạng response
+            return File(imageData, "image/jpeg"); // Thay "image/jpeg" bằng định dạng hình ảnh thích hợp nếu hình ảnh của bạn có định dạng khác
+        }
+    }
+}
+
+
+JS
+
+fetch("https://localhost:44340/api/images")
+  .then((response) => {
+    // Kiểm tra xem phản hồi có thành công hay không
+    if (!response.ok) {
+      throw new Error("Có lỗi xảy ra khi tải hình ảnh.");
+    }
+    // Trả về dữ liệu hình ảnh dưới dạng dữ liệu nhị phân
+    return response.json();
+  })
+  .then((data) => {
+    for (var i = 0; i < data.length; i++) {
+      fetch("https://localhost:44340/api/images/" + data[i])
+        .then((response) => {
+          // Kiểm tra xem phản hồi có thành công hay không
+          if (!response.ok) {
+            throw new Error("Có lỗi xảy ra khi tải hình ảnh.");
+          }
+          // Trả về dữ liệu hình ảnh dưới dạng dữ liệu nhị phân
+          return response.blob();
+        })
+        .then((blob) => {
+          // Tạo một đường dẫn URL tạm thời cho hình ảnh
+          var imgElement = document.createElement("img");
+          var imgUrl = URL.createObjectURL(blob);
+          // Gán đường dẫn URL cho thuộc tính src của thẻ <img>
+          imgElement.src = imgUrl;
+
+          document.body.appendChild(imgElement);
+        })
+        .catch((error) => {
+          console.error("Lỗi:", error);
+        });
+    }
+
+    // Tạo một đường dẫn URL tạm thời cho hình ảnh
+    // var imgElement = document.createElement('img');
+    // var imgUrl = URL.createObjectURL(blob);
+    // // Gán đường dẫn URL cho thuộc tính src của thẻ <img>
+    // imgElement.src = imgUrl;
+
+    // document.body.appendChild(imgElement);
+  })
+  .catch((error) => {
+    console.error("Lỗi:", error);
+  });

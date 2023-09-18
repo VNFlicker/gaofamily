@@ -1,0 +1,8 @@
+Trong program.cs
+
+    app.UseCors(options =>
+    {
+        options.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });

@@ -1,0 +1,70 @@
+Cài EPPlus
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using Microsoft.Data.SqlClient;
+using Newtonsoft.Json;
+using OfficeOpenXml;
+
+namespace API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TestController : ControllerBase
+    {
+        private readonly IConfiguration _configuration;
+
+        public TestController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ProcessFormData()
+        {
+            //var formData =  await Request.ReadFormAsync();
+            //string id = formData["ID"];
+            string connectionString = _configuration.GetConnectionString("ketnoi");
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Danhmuc",con);
+            //cmd.Parameters.AddWithValue("id", id);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            byte[] excelFile = CreateExcelFile(dataTable);
+
+            return File(excelFile, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "data.xlsx");
+        }
+
+        private byte[] CreateExcelFile(DataTable dataTable)
+        {
+            using (ExcelPackage package = new ExcelPackage())
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Data");
+
+                // Điền tiêu đề cột
+                for (int i = 0; i < dataTable.Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1].Value = dataTable.Columns[i].ColumnName;
+                }
+
+                // Ghi dữ liệu vào file Excel
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataTable.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1].Value = dataTable.Rows[i][j];
+                    }
+                }
+
+                // Chuyển đổi file Excel sang mảng byte[]
+                return package.GetAsByteArray();
+            }
+        }
+    }
+
+}

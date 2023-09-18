@@ -1,0 +1,56 @@
+API C#
+
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+
+
+namespace API.Controllers
+{
+    [ApiController]
+    [Route("api/images")]
+    public class GetimageController : ControllerBase
+    {
+
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public GetimageController(IWebHostEnvironment webHostEnvironment)
+        {
+            _webHostEnvironment = webHostEnvironment;
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            string appPath = _webHostEnvironment.ContentRootPath + "\\Data\\imgs\\1.jpg";
+
+            // Sử dụng `appPath` cho các mục đích khác trong API của bạn
+
+            Byte[] b = System.IO.File.ReadAllBytes(appPath);   // You can use your own method over here.         
+            return File(b, "application/octet-stream");
+        }
+    }
+}
+
+
+
+
+JS
+
+
+fetch('https://localhost:44340/api/images')
+    .then(response => response.arrayBuffer())
+    .then(data => {
+        // Dữ liệu byte array đã nhận được
+        const byteArray = new Uint8Array(data);
+
+        // Sử dụng byteArray cho mục đích của bạn
+        // Ví dụ: Hiển thị hình ảnh trong một thẻ <img>
+        const blob = new Blob([byteArray], { type: 'application/octet-stream' });
+        const imageUrl = URL.createObjectURL(blob);
+        document.getElementById('hinhanh').src = imageUrl;
+    })
+    .catch(error => {
+        // Xử lý lỗi nếu có
+        console.log(error);
+    });

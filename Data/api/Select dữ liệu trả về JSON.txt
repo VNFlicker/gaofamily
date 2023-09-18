@@ -1,0 +1,33 @@
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using Microsoft.Data.SqlClient;
+using Newtonsoft.Json;
+
+namespace API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TestController : ControllerBase
+    {
+        private string connectionString = "Data Source=DESKTOP-JQF3J57\\SQLEXPRESS;Initial Catalog=langthangshop;User id=sa;Password=Flicker;TrustServerCertificate=True";
+
+        [HttpGet]
+        public async Task<IActionResult> ProcessFormData()
+        {
+            //var formData =  await Request.ReadFormAsync();
+            //string id = formData["ID"];
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Danhmuc",con);
+            //cmd.Parameters.AddWithValue("id", id);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            string json = JsonConvert.SerializeObject(dataTable);
+            return new JsonResult(json);
+        }
+    }
+
+}
